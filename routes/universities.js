@@ -54,12 +54,12 @@ router.get('/delete/:id', async (req, res) => {
 router.put('/status/:id', async (req, res) => {
     try {
         const { status } = req.body; // Expecting 'accepted' or 'rejected'
-        const updatedApp = await Application.findByIdAndUpdate(
+        const updatedUniversity = await University.findByIdAndUpdate(
             req.params.id,
             { status },
             { new: true }
         );
-        res.json({ msg: "Status updated!", data: updatedApp });
+        res.json({ msg: "Status updated!", data: updatedUniversity });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

@@ -1,7 +1,8 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+
 
 const app = express();
 
@@ -14,10 +15,10 @@ app.use('/api/applications', require('./routes/applications'));
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect("mongodb://localhost:27017/ScholarLink")
     .then(() => console.log(" ScholarLink Database Connected..."))
     .catch(err => {
-        console.error(" MongoDB connection error:");
+        console.error("MongoDB connection error:");
         console.error(err);
     });
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
     res.status(200).send("ScholarLink API is live and running! ");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
 app.listen(PORT, () => {
     console.log(` Server is purring on port ${PORT}`);
     console.log(` Test the connection here: http://localhost:${PORT}`);
