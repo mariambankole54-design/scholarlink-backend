@@ -10,7 +10,7 @@ const ApplicationSchema = new mongoose.Schema({
 
     universityId: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'University', 
+        ref: 'Universities', 
         required: true 
     },
     status: { 

@@ -36,7 +36,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// to login
+// to login. POST "/api/auth/login"
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
     // to send back response
     res.json({
       token,
-      user: { id: user._id, name: user.name, role: user.role }
+      user: { id: user.id, name: user.name, role: user.role }
     });
 
   } catch (error) {
