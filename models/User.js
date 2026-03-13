@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema({
     courseChoice3: { type: String },
     budget: { type: String },
     country: { type: String },
+    document: {type: String},
     targetCountries: { type: [String], default: [] }
 }, { timestamps: true });
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User'); 
+const Application = require('../models/Application');
 
 router.put('/profile/:id', async (req, res) => {
   try {

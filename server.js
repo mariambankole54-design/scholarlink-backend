@@ -16,6 +16,8 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth.route'));
 app.use('/api/universities', require('./routes/universities'));
 app.use('/api/applications', require('./routes/applications'));
+app.use('/api/profile', require('./routes/user'));
+
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -60,7 +62,7 @@ app.post("/api/universities/:universityName", async (req, res, next) => {
     */
 
 app.use((req, res) => {
-    res.status(404).json({errorMessage: "Route not foound!"})
+    res.status(404).json({errorMessage: "Route not found!"})
 })
 
 app.use((error, req, res, next) => {
